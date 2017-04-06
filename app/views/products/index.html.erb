@@ -11,6 +11,7 @@
       <!--<th>Image url</th>-->
       <th>Stock</th>
       <th>View product</th>
+      <th>Buy</th>
 
 
     </tr>
@@ -31,6 +32,10 @@
         <td><%= print_price(product.price)%></td>
         <td><%= print_stock(product.stock) %></td>
         <td><%= link_to 'View Details', product_path(product) %></td>
+        <!--Line below not very clear, the path to be specific-->
+        <td><%= button_to "Add to Cart", order_items_path(product_id: product.id) %></td>
+
+
       </tr>
     <% end %>
   </tbody>
