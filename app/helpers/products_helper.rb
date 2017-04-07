@@ -11,7 +11,7 @@ module ProductsHelper
     content_tag(:span, "In Stock #{stock}", class: "in_stock")
 
   else
-    content_tag(:span, "Out of Stock", class: "Out of Stock")
+    content_tag(:span, "Out of Stock", class: "out_of_stock")
   end
 end
 

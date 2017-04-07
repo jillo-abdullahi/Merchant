@@ -78,7 +78,7 @@ end
     end
     #Need a bit of explanation on this one
     def load_order
-      @order = Order.find_or_initialize_by_id(session[:order_id], status: "unsubmitted")
+      @order = Order.find_or_initialize_by(id: session[:order_id], status: "unsubmitted")
         if @order.new_record?
             @order.save!
             session[:order_id] = @order.id
