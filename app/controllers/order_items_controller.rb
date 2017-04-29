@@ -6,9 +6,9 @@ class OrderItemsController < ApplicationController
 
   # GET /order_items
   # GET /order_items.json
-  #def index
-  #  @order_items = OrderItem.all
-  #end
+  def index
+   @order_items = OrderItem.all
+  end
 
   # GET /order_items/1
   # GET /order_items/1.json
@@ -28,8 +28,9 @@ class OrderItemsController < ApplicationController
   # POST /order_items.json
   def create
   #@order_item = OrderItem.new(product_id: params[:product_id], order_id: @order.id)
-  @order_item = @order.order_items.new(quantity: 2, product_id: params[:product_id])
-
+  @order_item = @order.order_items.new(quantity: 1, product_id: params[:product_id])
+  #@order_item = @order.order_items.find_or_initialize_by(product_id: params[:product_id], quantity: params[:quantity])
+  #@order_item.quantity += 1
   respond_to do |format|
     if @order_item.save
       format.html { redirect_to @order, notice: 'Successfully added product to cart.' }
